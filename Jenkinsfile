@@ -14,7 +14,7 @@ node{
    sh 'docker build -t kalaimanims/mavenapp:0.0.2 .'
    }
    stage('Docker Image Push'){
-   withCredentials([string(credentialsId: 'kalaimanims-Dockerhub', variable: 'dockerPassword')]) {
+   withCredentials([string(credentialsId: 'docker-secret-text', variable: 'dockerPassword')]) {
    sh "docker login -u kalaimanims -p ${dockerPassword}"
     }
    sh 'docker push kalaimani-ms/mavenapp:0.0.2'
