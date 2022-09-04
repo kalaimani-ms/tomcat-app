@@ -17,7 +17,7 @@ node{
    withCredentials([string(credentialsId: 'docker-secret-text', variable: 'dockerPassword')]) {
    sh "docker login -u kalaimanims -p ${dockerPassword}"
     }
-   sh 'docker push kalaimani-ms/mavenapp:0.0.2'
+   sh 'docker push kalaimanims/mavenapp:0.0.2'
    }
    stage('Docker deployment'){
    sh 'docker run -d -p 8090:8080 --name tomcattest kalaimanims/mavenapp:0.0.2' 
